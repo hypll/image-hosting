@@ -25,10 +25,15 @@
         <title>Image Hosting</title>
         <link rel="stylesheet" href="main.css" />
     </head>
-    <body class="bg-black">
-        <h1 class="text-center mt-2 text-red-dark-2">Upload Image</h1>
-        <p class="text-center text-white mt-1">
-            To host a image, click below to upload it
+    <body>
+        <h1
+            style="font-family: Open Sans; font-weight: bold !important"
+            class="text-center mt-3 text-white"
+        >
+            Image Hosting
+        </h1>
+        <p style="color: #d25151" class="text-center mt-1">
+            To host an image you can upload it below!
         </p>
         <br />
         <div class="w-full text-center">
@@ -39,21 +44,42 @@
             >
                 <input
                     type="file"
-                    class="file-input text-yellow-dark-2 br-sm"
+                    class="file-input br-sm"
                     name="image"
                     accept="image/x-png,image/gif,image/jpeg"
                     id="image"
+                    required
                 />
                 <br />
                 <br />
                 <button
                     type="submit"
-                    class="btn btn-gray text-white tr-sm bs-lg"
+                    style="background: #96bd8f"
+                    class="btn br-xs bs-sm bs-hover-none tr-sm pr-2 pl-2"
                 >
-                    <i class="fas fa-upload"></i> Upload
+                    <i class="fa fa-upload"></i> Upload
                 </button>
             </form>
         </div>
+        <!-- Footer -->
+        <footer class="pt-2 pb-2 mt-3">
+            <div class="container">
+                <a
+                    data-toggle="tooltip"
+                    id="github"
+                    title="View on Github"
+                    class="fab fa-github c-pointer text-white"
+                ></a>
+            </div>
+        </footer>
         <!-- script -->
+        <script>
+            document.getElementById("github").addEventListener("click", () => {
+                window.location.replace(
+                    "https://github.com/hypll/image-hosting",
+                    (target = "_blank")
+                );
+            });
+        </script>
     </body>
 </html>

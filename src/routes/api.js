@@ -3,16 +3,26 @@ const path = require("path");
 const fs = require("fs");
 
 router.get("/", (req, res) => {
-    res.send("Hello world!");
+    res.json({
+        message: "Welcome to the API",
+        endpoints: ["api/images"],
+    });
 });
 
 router.get("/images", (req, res) => {
-    // get the images from ../images
+    const { staff_key } = require("../data/keys.json");
+    const key = req.query.key;
 
-    // send the images to the client
-    fs.readdirSync("./src/images").forEach((file) => {
-        res.write(`<img src="/images/${file}">`);
-    });
+    if (key === staff_key) {
+        res.send(fs.readdirSync("./public/images"));
+    } else {
+        res.send("You have to provide a valid key!");
+    }
+
+    if (key != staff_key) {
+        req.header("Access-Control-Allow-Origin", "*");
+        res.send("Your key was invalid!");
+    }
 });
 
 module.exports = router;

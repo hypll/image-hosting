@@ -1,6 +1,18 @@
 .file-input {
-    border: 1px solid #ccc;
+    border: 2px solid #346dc2;
     display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
+    padding: 10px;
+    color: #d6e05f;
+    font-weight: bold;
+}
+
+body {
+    background-color: #414444;
+}
+
+a[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: -100%;
+    left: 0;
 }
