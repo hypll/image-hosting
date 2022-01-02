@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 
           $fileDs = 'uploads/'.$fileNameNew;
           move_uploaded_file($fileTmpName, $fileDs);
-          header("Location: index.php?uploadsuccess");
+          header("Location: uploads/".$fileNameNew);
       } else {
         echo "⛔️ Your file is too big!";
       }
